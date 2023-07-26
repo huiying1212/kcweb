@@ -1,0 +1,713 @@
+
+body {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+}
+/*导航*/
+tr{
+    text-align: center;
+}
+#tr1,#tr2{ float:right; }
+table{
+    /*border-top:1px solid;*/
+    /*border-bottom:1px solid;*/
+    /*border-bottom-color: #c3daee;*/
+    /*border-top-color: #c3daee;*/
+}
+.table{
+    float: right;
+    margin-left:30px;
+}
+
+/*一级标题*/
+.one{
+    height: 30px;
+    width: 100%;
+    /*background-color: #e4e6e7;*/
+    color: #000000;
+    cursor: pointer;/*鼠标样式变化*/
+    float: left;
+}
+
+/*二级标题*/
+.two tr{
+    background-color: #f2f2f3;
+    color: #000;
+}
+.two a{
+    /*margin-left: 50px;*/
+    /*float: right;*/
+    text-decoration: none;
+    color: #000;
+}
+.two td{
+    height: 25px;
+    width: 135px;
+}
+
+/* 设置页眉的样式 */
+.header {
+    width: 100%;
+    height: 100px;
+    margin: auto;
+    /*margin-top: 0px;*/
+    margin: 0px;
+    position: fixed;
+    background-color: #f1f1f1;
+    padding: 20px;
+    /*text-align: center;*/
+}
+.headerback {
+    height: 80px;
+}
+.top{
+    float:right;
+    background-color: #eee;
+    width: 20%;
+    /*height: 40px;*/
+    /*text-align: center;*/
+    line-height: 40px;
+}
+
+.top a{
+    margin-left: 25px;
+    margin-right: 25px;
+}
+a:hover{
+    background-color: #a3f178;
+}
+
+/* 设置页脚的样式 */
+.footer {
+    background-color: #f1f1f1;
+    padding: 30px;
+    text-align: center;
+    float: bottom;
+}
+/* 文段的缩进 */
+p {
+    text-indent:2em;
+    margin: 0px;
+}
+.first {
+    margin-top: 0px;
+    margin-left:40px;
+    margin-right:40px;
+    margin-bottom:60px;
+    float: left;
+}
+/* 首字大写 */
+.firstLetter {
+    font-size: 2.5em;
+
+}
+
+.topbox{
+    /*height:360px;*/
+    background: linear-gradient(to bottom, #f1f1f1,white);
+}
+
+/* 点赞效果 */
+.likeIcon-wrap {
+    height: 40px;
+    width: 30px;
+    margin-top: 0px;
+    margin-right: 50px;
+    float: right;
+}
+/*.likeIcon-wrap2 {*/
+/*    height: 40px;*/
+/*    width: 300px;*/
+/*    margin: 15px auto;*/
+/*    float: right;*/
+/*}*/
+.like-icon1 {
+    width: 68px;
+    height: 62px;
+    z-index: 7;
+    background: url("image/like0.png") no-repeat center;
+    background-size: 50px 46px;
+}
+.like-icon2 {
+    width: 68px;
+    height: 62px;
+    z-index: 7;
+    background: url("image/like0.png") no-repeat center;
+    background-size: 50px 46px;
+}
+.like-icon3 {
+    width: 68px;
+    height: 62px;
+    z-index: 7;
+    background: url("image/like0.png") no-repeat center;
+    background-size: 50px 46px;
+}
+.on {
+    background: url("image/like1.png") no-repeat center;
+    background-size: 50px 46px;
+}
+.like-num1 {
+    width: 68px;
+    height: 34px;
+    margin-top: 10px;
+    color: #ebebeb;
+    text-align: center;
+    font-size: 30px;
+}
+.like-num2 {
+    width: 68px;
+    height: 34px;
+    margin-top: 10px;
+    color: #ebebeb;
+    text-align: center;
+    font-size: 30px;
+}
+.like-num3 {
+    width: 68px;
+    height: 34px;
+    margin-top: 10px;
+    color: #ebebeb;
+    text-align: center;
+    font-size: 30px;
+}
+/*浮动实例 实现三个并排的图像*/
+* {
+    box-sizing: border-box;
+}
+.img-container {
+    float: left;
+    width: 33.33%;
+    padding: 30px;
+    overflow: hidden;
+}
+.img-container img{
+    width: 33.33%;
+    padding: 15px;
+}
+.img-container img:hover{
+    box-shadow:10px 6px 6px rgba(0,0,0,0.2);
+    transform:scale(1.18);
+    transition:all.4s ease-in-out;
+    transition-delay:0s !important;
+}
+.clearfix{
+    float:left;
+}
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+
+/*轮播图*/
+.contain{
+    width:1500px;
+    height:70px;
+    margin:30px 0;
+}
+.tip{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 10px;
+    margin-top:-60px;
+}
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+body{
+    padding:15px;
+}
+#container {
+    position: relative;
+    width: 1150px;
+    height:400px;
+    margin-left: 43px;
+    margin-bottom: 50px;
+    overflow: hidden;
+    padding-top: 40px;
+}
+
+#list {
+    position: absolute;
+    z-index: 1;/*为了使箭头与小点在图像上方*/
+    height: 400px;
+}
+#list img {
+    float: left;/*图像对齐方式*/
+    width:1150px;
+    height: 400px;
+}
+
+#buttons {
+    position: absolute;/*生成绝对定位的元素，相对于 static 定位以外的第一个父元素进行定位*/
+    left: 500px;/*几个小点的相对位置*/
+    bottom: 20px;
+    z-index: 2;/*元素的堆叠顺序*/
+    height: 20px;
+}
+
+#buttons span {
+    float: left;/*自动播放时的顺序*/
+    margin-right: 15px;/*外边距的宽度*/
+    width: 10px;
+    height: 10px;
+    border: 1px solid #fff;/*边框*/
+    border-radius: 50%;/*弧度*/
+    background: #333;/*不亮时的颜色*/
+    cursor: pointer;/*手型鼠标*/
+}
+
+#buttons .on {
+    background: orangered;/*小点亮时的颜色*/
+}
+
+.arrow {
+    position: absolute;
+    top: 180px;/*左右变换图标位置*/
+    z-index: 2;/*z-index 属性设置元素的堆叠顺序*/
+    display: none;/*display 属性规定元素应该生成的框的类型*/
+    width: 40px;
+    height: 40px;
+    font-size: 36px;
+    font-weight: bold;/*粗体*/
+    line-height: 37px;/*line-height 属性设置行间的距离*/
+    text-align:center;/*text-align 属性规定元素中的文本的水平对齐方式：箭头在方块的中心位置*/
+
+    color: #fff;
+    background-color: RGBA(0, 0, 0, .3);
+    cursor: pointer;/*手型鼠标*/
+}
+
+.arrow:hover {/*hover:鼠标到时改变颜色*/
+    background-color: RGBA(0, 0, 0, .7);
+}
+
+#container:hover .arrow {
+    display: block;/*此元素将显示为块级元素*/
+}
+#prev {
+    left: 20px;
+}
+
+#next {
+    right: 20px;
+}
+
+.scbox{
+}
+
+/*留言板*/
+.comment-01{
+    width:800px;
+    height:200px;
+    margin:0 30px;
+    border:#f3f3f3 1px solid;
+    box-shadow:10px 6px 6px rgba(0,0,0,0.2);
+}
+.comment-011{
+    width:750px;
+    height:90px;
+    margin:20px;
+    border:white;
+}
+.comment-0111{
+    width:750px;
+    height:50px;
+    margin-left:10px;
+}
+.hj{
+    width:40px;
+    height:40px;
+    float:left;
+    margin-right:20px;
+}
+.recommend-title{
+    font-size:30px;
+    margin-left: 35px;
+    margin-top: 25px;
+}
+.comment-0111 img{
+    width:40px;
+    height:40px;
+    border-radius: 20px;
+}
+.comment-011-left-1{
+    width:300px;
+    height:35px;
+    padding-top:5px;
+    float:left;
+    background:#f3f3f3;
+}
+.comment-011-left-1 input{
+    width:300px;
+    height:25px;
+    padding-top:5px;
+    border-radius: 10px;
+    border-color:#f3f3f3;
+    background:#f3f3f3;
+}
+.comment-011-right{
+    width:100px;
+    height:35px;
+    border: dimgray;
+    font-weight:bold;
+    background:dimgray;
+    border-radius:10px;
+    float:right;
+    padding-top:5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+}
+.comment-011-right a{
+    border: dimgray;
+    color:white;
+    font-size:20px;
+    text-decoration: none;
+}
+/*留言板展示*/
+.recommend-title2 {
+    font-size: 25px;
+    margin: 30px 40px;
+}
+.position-comment{
+    width:100%;
+    margin:20px;
+}
+.talker-1{
+    margin-left:20px;
+    width:750px;
+    height:140px;
+}
+.talker-img{
+    float:left;
+    margin:20px;
+}
+.talker-img img{
+    width:70px;
+    height:70px;
+    border-radius: 40px;
+}
+.talker-name{
+    width:750px;
+    height:120px;
+    padding-top:20px;
+}
+.talker-name .name-1{
+    font-size:20px;
+    font-weight:bold;
+}
+.talker-name .name-2{
+    font-size:15px;
+    margin-top:15px;
+}
+
+/*文章排版*/
+.star-top{
+    height:400px;
+    width:1233.5px;
+    float: left;
+}
+.image-left{
+    width:500px;
+    height:350px;
+    padding:0px 0px;
+    margin-left: 45px;
+    float:left;
+}
+.image-right{
+    width:450px;
+    height:350px;
+    padding:0px 0px;
+    margin-left: 50px;
+    float:left;
+}
+.image-left img{
+    width:500px;
+    height:350px;
+}
+.image-left img:hover{
+    box-shadow:10px 6px 6px rgba(0,0,0,0.2);
+    transform:scale(1.18);
+    transition:all.4s ease-in-out;
+    transition-delay:0s !important;
+}
+.image-right img{
+    width:450px;
+    height:350px;
+}
+.image-right img:hover{
+    box-shadow:10px 6px 6px rgba(0,0,0,0.2);
+    transform:scale(1.18);
+    transition:all.4s ease-in-out;
+    transition-delay:0s !important;
+}
+.text-right{
+    width:650px;
+    height:200px;
+    padding:40px 30px ;
+    margin-left: 25px;
+    float:left;
+    background: linear-gradient(to right, white,#f1f1f1,white);
+}
+.text-left{
+    width:500px;
+    height:300px;
+    padding:80px 0;
+    float:left;
+}
+
+/*图片放大特效*/
+.tv-main-1{
+    width:160px;
+    height:250px;
+    float:left;
+    margin:6px 10px 13px;
+}
+.tv-main-1 img{
+    width:160px;
+    height:230px;
+    border-radius: 10px;
+}
+.tv-main-1 img:hover{
+    box-shadow:10px 6px 6px rgba(0,0,0,0.2);
+    transform:scale(1.2);
+    transition:all.4s ease-in-out;
+    transition-delay:0s !important;
+}
+
+/*导航 页面定位*/
+.work-total-1{
+    height:80px;
+}
+.NO1-title{
+    margin-top: 20px;
+    width:250px;
+    height:100px;
+    border-right-color:dimgray;
+    border-right-style:dashed ;
+    border-right-width: 8px;
+    border-bottom-right-radius: 50px;
+    border-top-right-radius: 50px;
+    float:left;
+}
+.NO2-title{
+    margin-top: 20px;
+    width:400px;
+    height:100px;
+    border-right-color:dimgray;
+    border-right-style:dashed ;
+    border-right-width: 8px;
+    border-bottom-right-radius: 50px;
+    border-top-right-radius: 50px;
+    float:left;
+}
+.NO3-title{
+    margin-top: 20px;
+    width:200px;
+    height:100px;
+    border-right-color:dimgray;
+    border-right-style:dashed ;
+    border-right-width: 8px;
+    border-bottom-right-radius: 50px;
+    border-top-right-radius: 50px;
+}
+#No1001{
+    font-size: 40px;
+    font-weight: bold;
+    width:500px;
+    height:50px;
+    text-indent:0.5em;
+    color: dimgray;
+}
+#No1002{
+    font-size: 40px;
+    font-weight: bold;;
+    width:500px;
+    height:50px;
+    text-indent:0.5em;
+    color: dimgray;
+}
+#No1003{
+    font-size: 40px;
+    font-weight: bold;;
+    width:500px;
+    height:50px;
+    text-indent:0.5em;
+    color: dimgray;
+}
+.No2{
+    font-size:15px;
+    font-style: oblique;
+    float:right;
+}
+.No2 a{
+    text-decoration: none;
+    color:black;
+}
+.No2 a:hover{
+    color:#FF9933;
+}
+.work-13{
+    width:15%;
+    font-size:30px;
+    font-weight: bold;
+    float:left;
+    padding:13.5px;
+    color: dimgray;
+    text-indent:0.8em;
+}
+.work-11{
+    background:dimgrey;
+    font-size: 15px;
+    font-weight: bold;
+    color:white;
+    float:left;
+    margin:20px 10px;
+    width:15%;
+    height:30px;
+    text-align: center;
+    padding:4px ;
+    border-radius: 15px;
+}
+.work-12{
+    background:#f3f3f3;
+    font-size: 15px;
+    font-weight: bold;
+    float:left;
+    margin:20px 10px;
+    width:15%;
+    height:30px;
+    text-align: center;
+    padding:4px ;
+    border-radius: 15px;
+}
+.work-12 a{
+    text-decoration: none;
+    color:#b4b4b4;
+}
+.work-12 a:hover{
+    color:dimgrey;
+}
+.tv-main{
+    width:800px;
+    height:310px;
+    padding:20px 0;
+}
+.tv-main-1{
+    width:160px;
+    height:250px;
+    float:left;
+    margin:6px 10px 13px;
+}
+.tv-main-1 img{
+    width:160px;
+    height:230px;
+    border-radius: 10px;
+}
+.tv-main-1 img:hover{
+    box-shadow:10px 6px 6px rgba(0,0,0,0.2);
+    transform:scale(1.2);
+    transition:all.4s ease-in-out;
+    transition-delay:0s !important;
+}
+.title1 {
+    font-size: 15px;
+    color: black;
+    text-decoration: none;
+}
+.title1:hover{
+    color:#FF9933;
+}
+.work-total-main{
+    width:1250px;
+    margin-top: 20px;
+}
+.work-total-right{
+    float:right;
+    width:400px;
+}
+
+/*右栏*/
+.part3{
+    width:73%;
+    height: 950px;
+    float: left;
+}
+.honey-play{
+    width:27%;
+    height: 850px;
+    float:right;
+}
+.honey-play-left{
+    width:900px;
+    height:1300px;
+    float:left;
+}
+.hotting-special{
+    margin:20px 10px 10px 0;
+    width:310px;
+    height:90px;
+}
+.special-left{
+    padding-left:px;
+    width:140px;
+    height:90px;
+    float:left;
+    overflow: hidden;
+}
+.special-left img{
+    width:140px;
+    height:90px;
+    border-radius: 5px;
+}
+.special-left img:hover{
+    box-shadow:10px 6px 6px rgba(0,0,0,0.2);
+    transform:scale(1.2);
+    transition:all.4s ease-in-out;
+    transition-delay:0s !important;
+}
+.special-right{
+    padding-left:10px;
+    width:145px;
+    height:100px;
+    float:right;
+}
+.test1{
+    font-size:15px;
+    padding-bottom: 12px;
+}
+.test1 a{
+    color:black;
+    text-decoration:none;
+}
+.test1 a:hover{
+    color:darkseagreen;
+}
+.para{
+    font-style: oblique;
+    font-size:14px;
+    color:#b4b4b4;
+}
+.para2 {
+    font-style: normal;
+    font-size: 14px;
+    color: #b4b4b4;
+}
+.alt-title{
+    padding:25px 0;
+    font-size: 30px;
+    font-weight: bold;
+}
+.alt-title a{
+    text-decoration: none;
+    color:black;
+}
+/*后图*/
+.lastpage{
+    width: 100%;
+    height: 100%;
+}

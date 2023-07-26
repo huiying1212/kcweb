@@ -1,0 +1,138 @@
+!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <script src="js/jquery-2.1.0.min.js"></script>
+    <style type="text/css">
+        .wrap{
+            /*margin表示外边距*/
+            margin-top: 10px;
+            width: 1000px;
+            height: 800px;
+            /*background-color: #ccc; */
+            /*margin-left: 500px;*/
+        }
+        .input{
+            width: 250px;
+            height: 40px;
+            margin-top: 40px;
+            margin-left: 30px;
+        }
+        .logC{
+            margin-left: 315px;
+            width: 60%;
+            height: 45px;
+            background-color: dimgray;
+            color: white;
+            font-size: 18px;
+            margin-top: 40px;
+        }
+        .login{
+            margin-top: 20px;
+            float: right;
+            margin-right: 65px;
+        }
+        .leftdiv {
+            float: left;
+            width: 200px;
+            margin-left: 300px;
+            margin-top: 50px;
+        }
+        .rightdiv{
+            float: right;
+            width: 400px;
+            margin-left: 40px;
+        }
+        .header {
+            background-color: #f1f1f1;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+<!-- class用于style中控制div样式，也可以直接改为style="",将属性写在style中 -->
+<div class="header">
+    <h1>欢迎注册</h1>
+    <p>填写以下信息, 注册成为From Pollution To Solution用户, 感谢您的支持!&nbsp;|&nbsp;<a href="mlogin.html">我是商户</a></p>
+</div>
+<div class="wrap">
+    <!-- from是一个表单，点击提交按钮时可以将输入框内容提交到action后的页面，method表示servelet请求方式 -->
+    <form  name="form" action="#" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+        <div class="rightdiv">
+        <div>
+            <!-- b标签表示加粗字体 -->
+            <b>账 号:</b>
+            <!-- placeholder表示输入框预设文字 -->
+            <input class="input"  type="text" name="name" placeholder="请输入您的注册账号" />
+        </div>
+        <div>
+            <b>密 码:</b>
+            <input class="input" type="password" name="password" placeholder="请设置您的账号密码" />
+        </div>
+        <div>
+            <b>昵 称:</b>
+            <input class="input" type="text" name="name2" placeholder="请输入您的昵称" />
+        </div>
+        <div>
+            <b>邮 箱:</b>
+            <input class="input" type="text" name="email" placeholder="请输入您的联系邮箱" />
+        </div>
+        </div>
+        <div class="leftdiv">
+        <div>
+            <img src="" width="150" height="150" id="previewimg">
+        </div>
+        <div>
+            <input type="file" id="img" name="img" onChange="preview(this)"/>
+<!--            <span class="add">+</span>-->
+        </div>
+        </div>
+        <br>
+        <!-- submit表示提交按钮 -->
+        <input class="logC" onClick="log()" type="button" name="regist" value="注册">
+    </form>
+
+    <div class="login">
+        <!-- a标签表示链接 ，用于页面跳转-->
+        已有账号？&nbsp;<a href="login.jsp">点击登录</a>
+    </div>
+</div>
+
+    <script type="text/javascript">
+        //定义log函数
+        function log() {
+            //获取输入框的值，方式1
+            // var name = document.getElementsByTagName('input')[0].value;
+            // var password = document.getElementsByTagName('input')[1].value;
+            //方式2
+            var name = document.form.name.value;
+            var password = document.form.password.value;
+            var name2 = document.form.name2.value;
+            var email = document.form.email.value;
+            if (name==null||""==name) {
+                alert("账号为空，请重新输入");
+            } else if(password=null||""==password) {
+                alert("密码为空，请重新输入");
+            } else if(name2=null||""==name2){
+                alert("昵称为空，请重新输入");
+            } else{
+                //#表示servlet
+                document.form.action = "/regist";
+                document.form.submit();
+            }
+        }
+    </script>
+
+</body>
+
+<script type="text/javascript">
+  function preview(obj){
+    var img = document.getElementById("previewimg");
+    img.src = window.URL.createObjectURL(obj.files[0]);
+  }
+</script>
+
+</html>

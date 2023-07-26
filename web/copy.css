@@ -1,0 +1,65 @@
+*{margin: 0px; padding: 0px; border: 1px;}
+
+.box{/* 最外部盒子 */
+    width: 100%;
+}
+
+span div{
+    display: inline-block;
+}
+
+span div:hover{
+    background-color: #A3F178;
+}
+
+.top{
+    position: fixed;
+    background-color: #eee;
+    width: 80%;
+    height: 40px;
+    margin: auto;
+    margin-top: 50px;
+    text-align: center;
+    line-height: 40px;/* 让div中内容垂直居中 */
+}
+
+.top a{
+    margin-left: 25px;
+    margin-right: 25px;
+}
+a:hover{
+    background-color: #a3f178;
+}
+
+.middle{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border: 1px solid #000;
+    width: 165px;
+}
+
+
+.bottom{
+    width: 805px;
+    height: 425px;
+    background: url(zuoye1.PNG) repeat;/* 忘了 */
+}
+
+.top a,.middle a{
+    text-decoration: none;
+    color: brown;
+}
+a:hover{
+
+    background-color: #A3F178;
+}
+
+/*.head {*/
+/*    position: fixed;*/
+/*    height: 6rem;*/
+/*    width: 100%;*/
+/*    right: 0;*/
+/*    top: 0;*/
+/*    background-color: white;*/
+/*    z-index: 999;*/
+/*}*/

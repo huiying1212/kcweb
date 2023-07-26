@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>KC</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="index.css" >
+  <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
+  </script>
+  <script language="javascript">
+    function init()
+    {//先隐藏二级菜单
+      document.getElementById("sub_menu_1").hidden=true;
+      document.getElementById("sub_menu_2").hidden=true;
+      document.getElementById("sub_menu_3").hidden=true;
+      document.getElementById("sub_menu_4").hidden=true;
+      document.getElementById("sub_menu_5").hidden=true;
+    }
+    function f(str)
+    {//点击展开折叠效果
+      var sub_menu = document.getElementById(str);
+      var dis_v = sub_menu.style.display;
+
+      if(dis_v == "block")
+        sub_menu.style.display = "none";
+      else
+        sub_menu.style.display = "block";
+    }
+  </script>
+  <script>
+    window.onload = function() {/*当js代码需要获取页面中的元素时，如果script标签在元素的前面，需要加window.onload；如果script放在了元素后面，就不需要加 window.onload。*/const container = document.getElementById('container');
+      const list = document.getElementById('list');/*手动点击左右两个箭头切换图片*/
+      const buttons = document.getElementById('buttons').getElementsByTagName('span');
+      const prev = document.getElementById('prev');
+      const next = document.getElementById('next');
+      let index = 1;
+      let timer;//定时器变量
+      //获取的是style.left，是相对左边获取距离，所以第一张图后style.left都为负值，
+      //且style.left获取的是字符串，需要用parseInt （）取整转化为数字
+      function animate(offset) {
+        const newLeft = parseInt(list.style.left) + offset;
+        list.style.left = newLeft + 'px';
+        //这里定的是最大6个轮播图
+        if (newLeft > -1150) {
+          list.style.left = -6900 + 'px';
+        }
+        if (newLeft < -6900) {
+          list.style.left = -1150 + 'px';
+        }
+      }
+
+      function play() {
+        timer = setInterval(function() {
+          next.onclick(undefined);
+        }, 3500)
+      }
+
+
+      function buttonsShow() {
+        for (let i = 0; i < buttons.length; i++) {
+          if (buttons[i].className === "on") {
+            buttons[i].className ="";
+          }
+        }
+        buttons[index - 1].className = "on";
+      }
+      //点击箭头向左切换图片
+      prev.onclick = function() {
+        index -=1;
+        if (index <1) {
+          index = 6;
+        }
+        animate(1150);
+        buttonsShow();
+      };
+      //点击箭头向右切换图片
+      next.onclick = function() {
+        index +=1;
+        if (index > 6) {
+          index = 1
+        }
+        buttonsShow();
+        animate(-1150);
+      };
+
+      for (let i = 0; i < buttons.length; i++) {
+        (function (i) {
+          buttons[i].onclick = function () {
+            const clickIndex = parseInt(this.getAttribute('index'));
+            const offset = 1150 * (index - clickIndex);
+            animate(offset);
+            index = clickIndex;
+            buttonsShow();
+          }
+        })(i)
+      }
+      function stop() {
+        clearInterval(timer);//清除定时器
+      }
+      container.onmouseover = stop;/*鼠标划入划出事件*/
+      container.onmouseout = play;
+    }
+
+  </script>
+</head>
+
+<body onload="init()" margin="50px" border="50px" padding="0px"美瞳>
+  <div class="header" style="float: left" margin="0px">
+<!--    <div class="top">-->
+<!--      <span>-->
+<!--        <div><a href="" class="top-a">首页</a></div>-->
+<!--      </span>-->
+  <table cellspacing="0" cellpadding="0" class="table" margin="0px">
+  <tbody >
+  <h2 > KnowCarbon for No Carbon</h2>
+  <tr id="tr1" onclick = "f('sub_menu_1')">
+    <td class="one">更多</td>
+  </tr>
+  <tr id="tr2" onclick = "f('sub_menu_1')">
+    <td class="one">首页</td>
+  </tr>
+  <tr>
+    <td class="two">
+      <table id="sub_menu_1">
+        <tbody>
+        <tr><td><a href="modify_password.html" target="main">修改密码</a></td></tr>
+        <tr><td><a href="my_information.html" target="main">我的资料</a></td></tr>
+        </tbody>
+      </table>
+    </td>
+  </tr>
+  </tbody>
+  </table>
+  </div>
+
+  <div>
+    <div class="headerback" >
+    </div>
+    <video controls class="videoItem" width="100%" autoplay loop="loop">
+      <source src="Videos/waste.mp4" type="video/webm">
+    </video>
+  </div>
+  <div class="topbox">
+    <div class="first">
+      <br>
+      <br>
+      <p><span class="firstLetter">猖</span>獗的污染、生物多样性崩溃和气候不稳定是我们这个时代最紧迫的地球危机。塑料生产的快速增长已经对生命赖以生存的地球自然系统构成了威胁，而且预计情况会越来越糟。到2040年，对于需要按预期数量承担废弃物管理成本的企业，预计塑料垃圾将带来每年1000亿美元的财务风险。据估计，仅在意大利，由于在2019冠状病毒病疫情期间对医疗保护设备的依赖加剧，2020年就产生了16万至44万公吨的额外废弃物。如果构成这一数字的一次性口罩中只有1%被不当处理，那么每月可能有多达1000万个口罩进入并污染海洋。</p>
+      <br>
+      <p>虽然我们需要解决的海洋塑料的数量庞大到难以想象的地步，但科学告诉我们，我们所需的大部分解决方案其实已经存在。许多区域、国家和地方正在开展活动，帮助减少流入海洋的塑料，如区域海洋公约、国家对一次性塑料的禁令、 企业和政府承诺减少、重新设计和使用塑料产品、增加新产品中的回收塑料含量、路边倡议和城市塑料袋禁令。</p>
+      <br>
+      <p>改变世界的目标需要各国政府、国际组织和世界领袖合作。普通人似乎不可能产生影响。但是请你不要放弃！变化始于你。地球上的每个人，即使是我们之中最冷漠、最懒惰的人也是解决方案的一部分。幸运的是，我们可以日常做一些超级简单的事情，如果大家都这么做，就会对改变世界发挥巨大的作用。</p>
+    </div>
+  </div>
+  <div class="joinin">
+    <br>
+    <br>
+  </div>
+  <div class="work-total-1">
+    <div class="work-13">
+      导航
+    </div>
+    <div class="work-11">
+      Default
+    </div>
+    <div class="work-12">
+      <a href="#No1001">
+        Part 1
+      </a>
+    </div>
+    <div class="work-12">
+      <a href="#No1002">
+        Part 2
+      </a>
+    </div>
+    <div class="work-12">
+      <a href="#No1003">
+        Part 3
+      </a>
+    </div>
+  </div>
+  <br>
+  <!--Part 1  Instruction-->
+  <div>
+    <div class="NO1-title">
+      <div id="No1001">
+        Part 1
+      </div>
+      <h1 style="color: dimgray">&nbsp;&nbsp;Instruction</h1>
+    </div>
+    <div class="clearfix">
+      <div class="img-container">
+        <img src="Picsss/feng.PNG"  alt="介绍" style="width:100%">
+      </div>
+      <div class="img-container">
+        <img src="Picsss\ren.jpg"  alt="二手商店"  style="width:100%">
+      </div>
+      <div class="img-container">
+        <img src="Picsss\yu.jpg"  alt="行动起来" style="width:100%">
+      </div>
+    </div>
+
+    <div class="first">
+      <h2 ="2em">   可持续发展议程</h2>
+      <br>
+      <br>
+      <p>千年发展目标——20年前，近40%的发展中国家人口还生活在极端贫困中。迄今为止，在联合国千年发展目标的极大推动下，世界极端贫困人口的数量已经减少了一半。</p>
+      <br>
+      <p>2030年议程——认识到千年发展目标的成就以及完成消除贫困工作的必要性，联合国通过了宏大的2030年可持续发展议程。议程目标包括：无贫穷；零饥饿；良好健康与福祉；优质教育；性别平等；清洁饮水和卫生设施；经济适用的清洁能源；体面工作和经济增长；产业、创新和基础设施；减少不平等；可持续城市和社区；负责任消费和生产；气候行动；水下生物；陆地生物；和平、正义与强大机构；促进目标实现的伙伴关系。</p>
+      <br>
+      <p>巴黎协定——当时，虽然这些目标仍处于制定和批准过程中，但联合国支持气候变化谈判，促成了2015年《巴黎协定》。《巴黎协定》的核心目标是：加强对气候变化所产生的威胁做出全球性回应，将全球温度升幅控制在与前工业化时期相比2℃以内，并争取把温度升幅限制在1.5℃以内。此外，《巴黎协定》旨在加强各国应对气候变化影响的能力。为实现这些目标，将会投入更多资金和新技术，并将建立起一个更高效的能力建设框架。《巴黎协定》还制定了一个透明性框架，提高行动和支持的透明度。</p>
+    </div>
+    <div class="star-top">
+      <div class="image-left">
+        <img src="Picsss\mud.jpg" alt="">
+      </div>
+      <div class="text-right">
+        <p>该报道最初发表于2018年4月，现已更新，包括最新事实、数据和参考资料。
+          数以百万吨计的塑料在世界海洋中旋转，最近引起了媒体的广泛关注。但塑料污染可以说对以土地为基础的动植物——包括人类——构成了更大的威胁。我们每天丢弃的塑料很少被回收或焚烧在废物转化能源设施中。其中大部分最终进入垃圾填埋场，在那里可能需要长达1000年的时间才能分解，并将潜在有毒物质淋滤到土壤和水中。
+          德国的研究人员警告说，微塑料对土壤、沉积物和淡水的影响可能会对这些生态系统产生长期的负面影响。他们说，陆地微塑料污染比海洋微塑料污染高得多——根据环境的不同，估计是海洋微塑料污染的4到23倍。研究人员得出结论，尽管在这一领域开展的研究很少，但迄今为止的结果令人担忧：塑料碎片几乎遍布世界各地，可能引发多种不良影响。
+          这项研究估计，所有塑料废物中有三分之一最终进入土壤或淡水。这种塑料大部分会分解成小于5毫米的微粒，称为微塑料，这些微粒会进一步分解成纳米颗粒（尺寸小于0.1微米）。问题是这些颗粒正在进入食物链。
+        </p>
+      </div>
+    </div>
+    <div class="star-top">
+      <div class="text-right">
+        <p>UNEA-5将自然置于全球经济复苏和可持续发展讨论的核心。
+          UNEA-5的主题是“加强自然行动以实现可持续发展目标”。这突出了自然在我们的生活中以及在社会、经济和环境可持续发展中所起的关键作用。
+          自然是实现联合国所有会员国在2015年通过的2030年议程目标的关键。2030年议程旨在结束贫困和冲突，建设公正包容的社会，并确保地球及其自然资源得到持久保护。17项可持续发展目标（SDG）是各国如何实现这一目标的框架。
+          大自然充满了多样性和复杂性，是我们经济和社会的基础。人类正在通过过度开发、不受控制的发展和气候变化破坏这些提供生命的服务。我们需要共同保护和恢复我们的自然世界。
+          第五次联合国环境规划署强调，我们集体拥有知识、技术和资源，能够向有利于我们的健康、经济和未来的积极自然未来过渡。现在是为大自然采取行动的时候了。
+        </p><p>......</p>
+        <a href="https://www.unep.org/resources/pollution-solution-global-assessment-marine-litter-and-plastic-pollution">
+          <br>
+          <h4 style="color: #333333">  🖱 点击查看详情</h4>
+        </a>
+      </div>
+      <div class="image-right">
+        <img src="Picsss/greenfamer.JPG" alt="">
+      </div>
+    </div>
+    <div class="star-top">
+      <div class="image-left">
+        <img src="Picsss/landscape.jpg" alt="">
+      </div>
+      <div class="text-right">
+        <p>由联合国环境规划署主办的联合国环境大会（UNEA）汇集了193个联合国会员国、企业、民间社会和其他利益相关者的代表，就应对世界上最紧迫的环境挑战的政策达成一致。
+          联合国环境大会（UNEA-5）第五届会议续会于2022年2月28日至3月2日在内罗毕举行。
+          第五次联合国环境评估的总主题是“加强自然行动，实现可持续发展目标”。这突出了自然在我们的生活中以及在社会、经济和环境可持续发展中所起的关键作用。
+          UNEA-5为成员国提供了分享可持续性最佳实践的机会。它将为各国政府创造动力，在多边环境努力的基础上再接再厉并促进其影响，以保护和恢复我们的经济和社会赖以生存的自然世界。
+          展望欧洲经委会续会。5、联合国欧洲经委会主席重新启动了关于部长级宣言的磋商进程。在2021年10月6日的信中，总统提出了零稿宣言的更新版本，它考虑了先前磋商中已经取得的成果。这封信还提出了在即将召开的第五次联合国非洲经委会续会最后审议和通过草案之前的协商时间表。
+        </p>
+      </div>
+    </div>
+    <!-- like_icon -->
+
+  </div>
+  <!--Part 2  Second-hand Store-->
+  <div>
+    <div class="NO2-title">
+      <div id="No1002">
+        Part 2
+      </div>
+      <h1 style="color: dimgray">&nbsp;&nbsp;Second-hand Store</h1>
+    </div>
+    <!--轮播图-->
+    <div>
+      <div id="container">
+        <!--这个left值也是单个图的宽度的负值 第一个图放二次-->
+        <div id="list" style="left: -1150px;">
+          <img src="image/SH6.jpg" alt="1"/>
+          <a href="https://www.thredup.com/?__cf_chl_jschl_tk__=sNJfB.ou7B5SSiw1.ori87.X.R3TvgBcPeVq4JIV0FU-1640448321-0-gaNycGzNCNE" target="_blank">
+            <img src="image/SH2.jpg" alt="1" title="点击进入二手商店"/>
+          </a>
+          <a href="https://www.thredup.com/?__cf_chl_jschl_tk__=sNJfB.ou7B5SSiw1.ori87.X.R3TvgBcPeVq4JIV0FU-1640448321-0-gaNycGzNCNE" target="_blank">
+            <img src="image/SH1.jpg" alt="2" title="点击进入二手商店" />
+          </a>
+          <a href="https://www.thredup.com/?__cf_chl_jschl_tk__=sNJfB.ou7B5SSiw1.ori87.X.R3TvgBcPeVq4JIV0FU-1640448321-0-gaNycGzNCNE" target="_blank">
+            <img src="image/SH3.jpg" alt="3" title="点击进入二手商店"/>
+          </a>
+          <a href="https://www.thredup.com/?__cf_chl_jschl_tk__=sNJfB.ou7B5SSiw1.ori87.X.R3TvgBcPeVq4JIV0FU-1640448321-0-gaNycGzNCNE" target="_blank">
+            <img src="image/SH4.jpg" alt="4" title="点击进入二手商店"/>
+          </a>
+          <a href="https://www.thredup.com/?__cf_chl_jschl_tk__=sNJfB.ou7B5SSiw1.ori87.X.R3TvgBcPeVq4JIV0FU-1640448321-0-gaNycGzNCNE" target="_blank">
+            <img src="image/SH5.jpg" alt="5" title="点击进入二手商店"/>
+          </a>
+          <a href="https://www.thredup.com/?__cf_chl_jschl_tk__=sNJfB.ou7B5SSiw1.ori87.X.R3TvgBcPeVq4JIV0FU-1640448321-0-gaNycGzNCNE" target="_blank">
+            <img src="image/SH6.jpg" alt="6" title="点击进入二手商店"/>
+          </a>
+          <img src="image/SH1.jpg" alt="6"/>
+        </div>
+        <div id="buttons">
+          <span index="1" class="on"></span>
+          <span index="2"></span>
+          <span index="3"></span>
+          <span index="4"></span>
+          <span index="5"></span>
+          <span index="6"></span>
+        </div>
+        <a href="javascript:" id="prev" class="arrow">&lt;</a>
+        <a href="javascript:" id="next" class="arrow">></a>
+      </div>
+      <div class="scbox">
+        <div class="first">
+          <p>"在线旧货店越来越受欢迎，因为人们试图减轻其影响并节省一些钱。在我看来，购买二手和复古服装可能非常令人兴奋，现在世界每年生产800亿件新服装，节俭有助于升级回收那些最终会成为垃圾的衣服。<p/>
+          <br>
+          <p>当您开始这个生态之旅时，了解快时尚，可持续和道德时尚非常重要。从旧货店购买二手服装可以更好地利用我们的资源。我建议在相反的季节购物，在夏天寻找冬季外套，当每个人都在清理他们的衣柜，商店还没有被挑选出来。"</p>
+        </div>
+        <form  name="form" action="#" method="post" target="frameName">
+          <div style="margin-left: 40px">
+            <!-- b标签表示加粗字体 -->
+            <b>没有找到就近的商店？</b>
+            <!-- placeholder表示输入框预设文字 -->
+<%--            <input type="hidden" name="field_name" value="<%=usernow.getAccount() %>" />--%>
+            <input class="input0"  type="text" name="cityname" placeholder="填写您的城市" />
+            <input class="logC0" onClick="city()" type="button" name="login" value="确认">
+          </div>
+          <br>
+        </form>
+        <iframe src="" frameborder="0" name="frameName"></iframe>
+        <script type="text/javascript">
+          //定义log函数
+          function city() {
+            //获取输入框的值，方式1
+            // var name = document.getElementsByTagName('input')[0].value;
+            // var password = document.getElementsByTagName('input')[1].value;
+            //方式2
+            var cityname = document.form.cityname.value;
+            var field_name = document.form.field_name.value;
+            if (cityname==null||""==cityname) {
+              alert("您未填写任何城市，请重新输入");
+            }else{
+              //#表示servlet
+              alert("您已成功提交");
+              document.form.action = "/city";
+              document.form.submit();
+            }
+          }
+        </script>
+      </div>
+    </div>
+  </div>
+
+  <!--Part 3  Join Us-->
+  <div>
+    <br>
+    <div class="NO3-title">
+      <div id="No1003">
+        Part 3
+      </div>
+      <h1 style="color: dimgray">&nbsp;&nbsp;Join Us</h1>
+    </div>
+  </div>
+  <br>
+  <!--留言板-->
+  <div class ="part3">
+    <br>
+    <form  name="form2" action="#" method="post" target="frameName">
+    <div class="comment-01">
+      <label>
+        <input type="text" class="comment-011" name="comment2" placeholder="  记录你的环保小事....">
+      </label>
+      <div class="comment-0111">
+        <div class="hj">
+        </div>
+        <div class="comment-011-left-1">
+          <label>
+            <input type="text" name="comment1" placeholder=" 添加标题">
+          </label>
+        </div>
+        <input class="comment-011-right" onClick="post()" type="button" name="login1" value="发送" style="color:white;font-size:15px;">
+      </div>
+    </div>
+    </form>
+    <!--留言展示-->
+    <div class="recommend-title2">
+      <br>
+    </div>
+    <div class="position-comment">
+      <div class="talker-1">
+        <div class="talker-img">
+          <img src="image/wenxuan.JPG" alt="">
+        </div>
+        <div class="talker-name">
+          <div class="name-1">
+            Wenxuan Zhang
+          </div>
+          <div class="name-2">
+            虽然保护环境不会彻底让新冠病毒消失，但是不保护环境和生态系统会有更多的病毒！
+          </div>
+        </div>
+      </div>
+      <div class="talker-1">
+        <div class="talker-img">
+          <img src="image/ziyi.JPG" alt="">
+        </div>
+        <div class="talker-name">
+          <div class="name-1">
+            打小就俊
+          </div>
+          <div class="name-2">
+            海洋谁来保护关爱😔 微塑料问题会愈发严重，大量物种将因繁殖困难逐渐走向濒危，还能通过食物链回归人体
+          </div>
+        </div>
+      </div>
+      <div class="talker-1">
+        <div class="talker-img">
+          <img src="image/xiaoyu.JPG" alt="">
+        </div>
+        <div class="talker-name">
+          <div class="name-1">
+            jy小语
+          </div>
+          <div class="name-2">
+            精明购物——计划伙食，使用购物清单，避免冲动购买。不要屈从营销技巧，这会导致你购买多于需求的食物，特别是易腐烂物品。尽管单价可能更便宜，但如果大多被丢弃，整体反而更昂贵。
+          </div>
+        </div>
+      </div>
+      <div class="talker-1">
+        <div class="talker-img">
+          <img src="image/yifan.JPG" alt="">
+        </div>
+        <div class="talker-name">
+          <div class="name-1">
+            Cheng-if
+          </div>
+          <div class="name-2">
+            倡导推进全球生态文明建设，强调人与自然是生命共同体。“天地与我为一，万物与我并生，日月与我生生不息"。
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--右栏-->
+  <div class="honey-play">
+    <div class="alt-title">
+      <a href="https://www.un.org/sustainabledevelopment/zh/">
+        SDGs - TOP7
+      </a>
+    </div>
+    <div class="hotting-special">
+      <div class="special-left">
+        <a href="#">
+          <img src="Picsss/IMG_1107.JPG" alt="">
+        </a>
+      </div>
+      <div class="special-right">
+        <div class="test1">
+          <a href="#">
+            无贫穷
+          </a>
+        </div>
+        <span class="para">在全世界消除一切形式的贫困</span>
+      </div>
+    </div>
+    <div class="hotting-special">
+      <div class="special-left">
+        <a href="#">
+          <img src="Picsss/IMG_1108.JPG" alt="">
+        </a>
+      </div>
+      <div class="special-right">
+        <div class="test1">
+          <a href="#">
+            零饥饿
+          </a>
+        </div>
+        <span class="para">消除饥饿，实现粮食安全</span>
+      </div>
+    </div>
+    <div class="hotting-special">
+      <div class="special-left">
+        <a href="#">
+          <img src="Picsss/IMG_1109.JPG" alt="">
+        </a>
+      </div>
+      <div class="special-right">
+        <div class="test1">
+          <a href="#">
+            健康福祉
+          </a>
+        </div>
+        <span class="para">确保健康的生活方式祉</span>
+      </div>
+    </div>
+    <div class="hotting-special">
+      <div class="special-left">
+        <a href="#">
+          <img src="Picsss/IMG_1110.JPG" alt="">
+        </a>
+      </div>
+      <div class="special-right">
+        <div class="test1">
+          <a href="#">
+            优质教育
+          </a>
+        </div>
+        <span class="para">确保包容和公平的优质教育</span>
+      </div>
+    </div>
+    <div class="hotting-special">
+      <div class="special-left">
+        <a href="#">
+          <img src="Picsss/IMG_1111.JPG" alt="">
+        </a>
+      </div>
+      <div class="special-right">
+        <div class="test1">
+          <a href="#">
+            性别平等
+          </a>
+        </div>
+        <span class="para">增强所有妇女和女童的权能</span>
+      </div>
+    </div>
+    <div class="hotting-special">
+      <div class="special-left">
+        <a href="#">
+          <img src="Picsss/IMG_1112.JPG" alt="">
+        </a>
+      </div>
+      <div class="special-right">
+        <div class="test1">
+          <a href="#">
+            清洁水源
+          </a>
+        </div>
+        <span class="para">为所有人提供水和环境卫生</span>
+      </div>
+    </div>
+    <div class="hotting-special">
+      <div class="special-left">
+        <a href="#">
+          <img src="Picsss/IMG_1113.JPG" alt="">
+        </a>
+      </div>
+      <div class="special-right">
+        <div class="test1">
+          <a href="#">
+            循环经济
+          </a>
+        </div>
+        <span class="para">确保可靠和可持续的现代能源</span>
+      </div>
+    </div>
+  </div>
+  <div class="lastpage">
+    <img src="image/chang.png" alt="" width="1233">
+  </div>
+  <div class="footer">
+    <h1>End</h1>
+  </div>
+</body>
+</html>
+
